@@ -9,3 +9,18 @@
 .form-width{
     width: 65%;
 }
+
+/* Responsive Styles */
+@media screen and (max-width: 767px) {
+
+    .content,
+    .form-content {
+      flex-direction: column;
+    }
+
+    .product-width,
+    .form-width {
+      width: 100%;
+    }
+
+  }

@@ -1,0 +1,131 @@
+<div class="content" role="main">
+
+  <div class="table">
+    <div class="toolbar-table">
+      <span>Dirección de envío</span>
+    </div>
+    <div class="content-table">
+      <form [formGroup]="contactForm" action="ejemplo.php" method="get" class="form-content" (ngSubmit)="onSubmit()">
+        <div class="row">
+          <div>
+            <div class="div-input">
+              <div class="div-icons">
+                <i class="fas fa-user icon"></i>
+              </div>
+              <input type="text" name="name" placeholder="Nombre" formControlName="name">
+            </div>
+            <div class="error" *ngIf="name.invalid && (name.dirty || name.touched) && name.errors.required">
+              El nombre es requerido.
+            </div>
+            <div class="div-input">
+              <div class="div-icons">
+                <i class="fas fa-envelope icon"></i>
+              </div>
+              <input type="email" name="email" placeholder="Correo Electrónico" formControlName="email">
+            </div>
+            <div class="error" *ngIf="email.invalid && (email.dirty || email.touched)">
+              <div class="error" *ngIf="email.errors.required">
+                El email es requerido.
+              </div>
+              <div class="error" *ngIf="email.errors.email">
+                El email no es valido.
+              </div>
+            </div>
+            <div class="div-input">
+              <div class="div-icons">
+                <i class="fas fa-map-marker-alt icon"></i>
+              </div>
+              <input type="number" name="code" placeholder="Código postal" formControlName="code" (blur)="onGetCode()">
+            </div>
+            <div class="error" *ngIf="code.invalid && (code.dirty || code.touched) && code.errors.required">
+              El codigo es requerido.
+            </div>
+            <div class="div-input">
+              <div class="div-icons">
+                <i class="fas fa-map-marker-alt icon"></i>
+              </div>
+              <input type="text" name="state" placeholder="Estado/Región" formControlName="state">
+            </div>
+            <div class="error" *ngIf="state.invalid && (state.dirty || state.touched) && state.errors.required">
+              El Estado/Región es requerido.
+            </div>
+            <div class="div-input">
+              <div class="div-icons">
+                <i class="fas fa-map-marker-alt icon"></i>
+              </div>
+              <input type="text" name="town" placeholder="Delegación o municipio" formControlName="town">
+            </div>
+            <div class="error" *ngIf="town.invalid && (town.dirty || town.touched) && town.errors.required">
+              El municipio es requerido
+            </div>
+          </div>
+          <div>
+            <div class="div-input">
+              <div class="div-icons">
+                <i class="fas fa-user icon"></i>
+              </div>
+              <input type="text" name="lastName" placeholder="Apellidos" formControlName="lastName">
+            </div>
+            <div class="error"
+              *ngIf="lastName.invalid && (lastName.dirty || lastName.touched) && lastName.errors.required">
+              El apellido es requerido.
+            </div>
+            <div class="div-input">
+              <div class="div-icons">
+                <i class="fas fa-phone icon"></i>
+              </div>
+              <input type="phone" name="phone" placeholder="Número de teléfono" formControlName="phone">
+            </div>
+            <div class="error" *ngIf="phone.invalid && (phone.dirty || phone.touched) && phone.errors.required">
+              El teléfono es requerido.
+            </div>
+            <div class="div-input">
+              <div class="div-icons">
+                <i class="fas fa-map-marker-alt icon"></i>
+              </div>
+              <input *ngIf="availableColonies.length < 2" type="text" name="colony" placeholder="Colonia"
+                formControlName="colony">
+              <select *ngIf="availableColonies.length > 1" name="colony" formControlName="colony">
+                <option [value]="item" *ngFor="let item of availableColonies">{{item}}</option>
+              </select>
+            </div>
+            <div class="error" *ngIf="colony.invalid && (colony.dirty || colony.touched) && colony.errors.required">
+              La colonia es requerido.
+            </div>
+            <div class="div-input">
+              <div class="div-icons">
+                <i class="fas fa-map-marker-alt icon"></i>
+              </div>
+              <input type="text" name="city" placeholder="Ciudad" formControlName="city">
+            </div>
+            <div class="error" *ngIf="city.invalid && (city.dirty || city.touched) && city.errors.required">
+              La ciudad es requerido.
+            </div>
+            <div class="div-input">
+              <div class="div-icons">
+                <i class="fas fa-map-marker-alt icon"></i>
+              </div>
+              <input type="text" name="street" placeholder="Calle" formControlName="street">
+            </div>
+            <div class="error" *ngIf="street.invalid && (street.dirty || street.touched) && street.errors.required">
+              La calle es requerido.
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <a href="" target="_blank" rel="noopener">
+            <div class="buttons">
+              Libreta de direcciones
+            </div>
+          </a>
+          <button type="submit" class="buttons">Guardar</button>
+        </div>
+      </form>
+
+    </div>
+
+  </div>
+
+
+</div>

@@ -1,0 +1,19 @@
+<div class="table-cart">
+  <div class="title-table">
+    <span>resumen de la orden</span>
+  </div>
+  <div class="row items" *ngFor="let item of products">
+    <img src="{{item.image}}" alt="">
+    <p>{{item.name}}</p>
+    <p class="price">${{item.price}}</p>
+  </div>
+  <button class="button-red">Editar</button>
+  <div class="subtotal row">
+    <span>Subtotal<br>envío</span>
+    <span class="total-preview">${{total}}<br>A calcular</span>
+  </div>
+  <div class="total row">
+    <span>total</span>
+    <span>${{total}}</span>
+  </div>
+</div>
